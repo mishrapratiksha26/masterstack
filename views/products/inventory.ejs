@@ -1,0 +1,11 @@
+<% layout('layouts/boilerplate') %> 
+    <%for(let product of products){%>
+        <li><a href="products/<%=product._id%>">name:<%=product.name %> </a></li>
+        <li>code:<%=product.code %> </li>
+        <li>price:<%=product.price %> </li>
+        <li>no.of units left:<%=product.units %> </li>
+        <li>last restocked on:<%=product.restock_date %> </li>
+        <li>discount:<%=product.discount %> </li>
+        <li>discounted price:<%=product.price-((product.discount*product.price)/100) %> </li>
+        <% } %>  
+

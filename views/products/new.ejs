@@ -1,0 +1,43 @@
+<% layout('layouts/boilerplate') %> 
+    <form action="/products" method="post">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">name</th>
+            <th scope="col">code</th>
+            <th scope="col">price</th>
+            <th scope="col">units</th>
+            <th scope="col">discount</th>
+            <th scope="col">date of restocking</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td><input type="text" id="name" name="product[name]"></td>
+            <td><input type="text" id="code" name="product[code]"></td>
+            <td><input type="text" id="price" name="product[price]"></td>
+            <td><input type="text" id="units" name="product[units]"></td>
+            <td><input type="text" id="discount" name="product[discount]"></td>
+            <td><input type="date" id="restock_date" name="product[restock_date]"></td>
+          </tr>
+          <!-- <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr> -->
+        </tbody>
+      </table> 
+      <div class="mb-3">
+        <button class="btn btn-success">submit</button>
+    </div>
+    <a href="/products">BACK TO HOMEPAGE</a>
+    </form>

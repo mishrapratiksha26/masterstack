@@ -1,0 +1,46 @@
+<% layout('layouts/boilerplate') %> 
+    <form action="/bills" method="post">
+        <div class="card-body">
+            <h5 class="card-title"> Name:<input type="text" name="bill[customer]"></h5>
+            <h5 class="card-text"><input type="date" name="bill[date]"></h5>
+        </div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">name</th>
+            <th scope="col">code</th>
+            <th scope="col">price</th>
+            <th scope="col">units</th>
+            <th scope="col">discount</th>
+            <th scope="col">final price</th>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td><input type="text" id="name" name="product[name]" multiple><% let product = await Product.findOne(`{name:${product[name]}}`) %> </td>
+            <td><input type="text" id="code" name="product[code]" value="<%=product.code%>" multiple></td>
+            <td><input type="text" id="price" name="product[price]" value="<%=product.price%>" multiple></td>
+            <td><input type="text" id="units" name="product[units]" multiple></td>
+            <td><input type="text" id="discount" name="product[discount]" multiple></td>
+            <td><input type="text" id="discountedprice" multiple></td>
+          </tr>
+          <!-- <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr> -->
+        </tbody>
+      </table> 
+      <div class="mb-3">
+        <button class="btn btn-success">submit</button>
+    </div>
+    <a href="/products">BACK TO HOMEPAGE</a>
+    </form>
