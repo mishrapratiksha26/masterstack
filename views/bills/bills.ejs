@@ -1,1 +1,40 @@
-bills
+<% layout('layouts/boilerplate') %>
+<% let Total=0 %>  
+    <%for(let bill of bills){ %>
+         
+<li>
+       <h5 class="card-title"> Name:<%=bill.customer %></h5>
+        <h5 class="card-text">Date:<%=bill.date %></h5>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Code</th>
+                <th scope="col">Price</th>
+                <th scope="col">Units</th>
+                <th scope="col">Final price</th>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                
+                <td><%=bill.product_name  %> </td>
+                <td><%=bill.product_code %></td>
+                <td><%=bill.product_price %></td>
+                <td><%=bill.product_amount %></td>
+                <td><%=bill.finalprice %></td>
+                
+              </tr>
+            </tbody>
+            
+          </table> 
+          <h5>Final Amount:<%=bill.billAmount%> </h5>
+        </li>
+        <%Total += bill.billAmount  %> 
+
+<br>
+          
+    
+         <% }%>  
+         <section><h1> Total Sales: <%=Total%></h1> </section>
