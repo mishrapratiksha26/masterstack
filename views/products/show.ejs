@@ -4,14 +4,14 @@
             <div class="card mb-3">
                 
                 <div class="card-body">
-                    <h5 class="card-title">Product code:<%= product.code%></h5>
-                    <p class="card-text">Product price:<%= product.price%></p>
+                    <h5 class="card-title">Product name:<%= product.name%></h5>
+                    <p class="card-text">Product code:<%= product.code%></p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item text-muted">Units left:<%= product.units%></li>
+                    <li class="list-group-item text-muted">:<%= product.price%></li>
                     <li class="list-group-item">restocked on:<%= product.restock_date%></li>
-                    <!-- <li class="list-group-item"><%= product.popularity%></li> -->
-                    <li class="list-group-item">percent discount<%= product.discount%></li>
+                    
                    
                 </ul>
             
