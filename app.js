@@ -66,7 +66,13 @@ app.delete('/products/:id',async(req,res)=>{
     await Product.findByIdAndDelete(id);
     res.redirect('/products');
 })
+app.get('/register',async(req,res)=>{
+    res.render('users/new')
+})
 
+app.post('/register',async(req,res)=>{
+   res.redirect('new')
+})
 // bills
 app.get('/bill/new',async(req,res)=>{
     res.render('bills/new');
