@@ -6,7 +6,6 @@ const ProductSchema = new Schema({
     price:Number,
     code:String,
     units:Number,
-    discount:String,
     restock_date:Date
 })
 
