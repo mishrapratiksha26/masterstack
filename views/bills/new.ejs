@@ -1,8 +1,9 @@
 <% layout('layouts/boilerplate') %> 
-    <form action="/bills" method="post">
+    <form action="/products" method="post">
         <div class="card-body">
             <h5 class="card-title"> Name:<input type="text" name="bill[customer]"></h5>
-            <h5 class="card-text"><input type="date" name="bill[date]"></h5>
+            <h5 class="card-text">Dated:<input type="date" name="bill[date]"></h5>
+            
         </div>
     <table class="table">
         <thead>
@@ -12,23 +13,64 @@
             <th scope="col">code</th>
             <th scope="col">price</th>
             <th scope="col">units</th>
-            <th scope="col">discount</th>
             <th scope="col">final price</th>
         </thead>
         <tbody>
           <tr>
             <th scope="row">1</th>
-            <td><input type="text" id="name" name="product[name]" multiple><% let product = await Product.findOne(`{name:${product[name]}}`) %> </td>
-            <td><input type="text" id="code" name="product[code]" value="<%=product.code%>" multiple></td>
-            <td><input type="text" id="price" name="product[price]" value="<%=product.price%>" multiple></td>
-            <td><input type="text" id="units" name="product[units]" multiple></td>
-            <td><input type="text" id="discount" name="product[discount]" multiple></td>
-            <td><input type="text" id="discountedprice" multiple></td>
+            <td><input type="text" id="name" name="bill[product_name]"> </td>
+            <td><input type="text" id="code" name="bill[product_code]"></td>
+            <td><input type="text" id="price" name="bill[product_price]" ></td>
+            <td><input type="text" id="amount" name="bill[product_amount]" ></td>
+           <td> <input type="text" id="finalprice" name="bill[finalprice]"></td>
+          </tr>
+        
         
         </tbody>
+        
       </table> 
+      <label for="billAmount">Final Amount:</label>
+      <input type="text" id="billAmount" name="bill[billAmount]">
       <div class="mb-3">
         <button class="btn btn-success">submit</button>
     </div>
-    <a href="/products">BACK TO HOMEPAGE</a>
+    <!-- <a href="/products">BACK TO HOMEPAGE</a> -->
     </form>
+    <script>
+      function FinalPrice(){
+      const price = document.getElementById('price');
+      const discount = document.getElementById('discount');
+      const amount = document.getElementById('units');
+      const final = document.getElementById('finalPrice').innerHTML=(price-(price*discount)/100)*amount;
+    
+      
+      }
+      let btnAdd = document.querySelector('button');
+let table = document.querySelector('table');
+
+
+let nameInput = document.querySelector('#name');
+let ageInput = document.querySelector('#code');
+let countryInput = document.querySelector('#price');
+let amountInput = document.querySelector('#units');
+let discountInput = document.querySelector('#discount');
+
+
+btnAdd.addEventListener('click', () => {
+    let name = nameInput.value;
+    let code = ageInput.value;
+    let price = countryInput.value;
+    let amount = amountInput.value;
+    let discount = discountInput.value;
+
+    let template = `
+                <tr>
+                    <td>${name}</td>
+                    <td>${code}</td>
+                    <td>${price}</td>
+                </tr>`;
+
+    table.innerHTML += template;
+});
+      
+    </script>
