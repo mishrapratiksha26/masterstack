@@ -2,7 +2,7 @@
 <% let Total=0 %>  
     <%for(let bill of bills){ %>
          
-<li>
+
        <h5 class="card-title"> Name:<%=bill.customer %></h5>
         <h5 class="card-text">Date:<%=bill.date %></h5>
         <table class="table">
@@ -30,7 +30,7 @@
             
           </table> 
           <h5>Final Amount:<%=bill.billAmount%> </h5>
-        </li>
+  
         <%Total += bill.billAmount  %> 
 
 <br>
