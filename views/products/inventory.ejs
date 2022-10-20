@@ -1,11 +1,41 @@
 <% layout('layouts/boilerplate') %> 
+<figure class="text-center">
+<h1 class="display-6" >Inventory</h1></figure>
     <%for(let product of products){%>
-        <li><a href="products/<%=product._id%>">name:<%=product.name %> </a></li>
-        <li>code:<%=product.code %> </li>
-        <li>price:<%=product.price %> </li>
-        <li>no.of units left:<%=product.units %> </li>
-        <li>last restocked on:<%=product.restock_date %> </li>
-        <li>discount:<%=product.discount %> </li>
-        <li>discounted price:<%=product.price-((product.discount*product.price)/100) %> </li>
+        <% layout('layouts/boilerplate') %> 
+        <%for(let product of products){%>
+             
+    <li>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Code</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Units</th>
+                    <th scope="col">Restocked on</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    
+                    <td><a href="products/<%=product._id%>"><%=product.name %></a> </td>
+                    <td><%=product.code %></td>
+                    <td><%=product.price %></td>
+                    <td><%=product.units %></td>
+                    <td><%=product.restick_date %></td>
+                    
+                  </tr>
+                </tbody>
+                
+              </table> 
+              <h5>Final Amount:<%=product.productAmount%> </h5>
+            </li>
+    <section>     </section>
+    <br>
+              
+        
+             <% }%>  
         <% } %>  
 
